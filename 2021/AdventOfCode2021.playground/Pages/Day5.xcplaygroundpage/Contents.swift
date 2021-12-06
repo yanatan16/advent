@@ -3,7 +3,6 @@
 
 import Foundation
 
-
 let fileURL = Bundle.main.url(forResource: "input", withExtension: "txt")
 let rawInput = try! String(contentsOf: fileURL!, encoding: String.Encoding.utf8)
 
@@ -30,5 +29,6 @@ print("Problem 1 (Real): \(Fast.problem1(input))")
 
 print("Problem 2 (Example): \(Fast.problem2(example))")
 print("Problem 2 (Real): \(Fast.problem2(input))")
+
 
 //: [Next](@next)
