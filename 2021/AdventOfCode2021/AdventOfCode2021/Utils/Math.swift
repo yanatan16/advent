@@ -34,3 +34,9 @@ extension Array where Element : BinaryInteger {
 func twoToThePowerOf(_ exp: Int) -> Int {
     Int(pow(2.0, Double(exp)))
 }
+
+extension Array where Element == Int {
+    func toAscii() -> String {
+        String(map { Character(UnicodeScalar($0)!) })
+    }
+}

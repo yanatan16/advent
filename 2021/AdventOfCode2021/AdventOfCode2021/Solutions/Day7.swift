@@ -32,7 +32,7 @@ struct Day7 : Solution {
         print("mean \(mean)")
         print("variance \(stdev)")
         
-        var costs = (Int(floor(mean-stdev))...Int(ceil(mean+stdev))).map { fuel in
+        let costs = (Int(floor(mean-stdev))...Int(ceil(mean+stdev))).map { fuel in
             (fuel, fuelCost(input, position: fuel))
         }
         
@@ -58,7 +58,7 @@ struct Day7 : Solution {
             fuelCostChart.append(fuelCostChart.last! + i)
         }
         
-        var costs = (input.min()!...input.max()!).map { fuel in
+        let costs = (input.min()!...input.max()!).map { fuel in
             (fuel, increasingFuelCost(input, position: fuel, chart: fuelCostChart))
         }
         return costs.min(by: { (p1, p2) in p1.1 <= p2.1 })!.1
@@ -70,7 +70,11 @@ struct Day7Rewrite : Solution {
     typealias Input = Day7.Input
     typealias Output = Day7.Output
     func parseInput(_ raw: String) -> Input {
-        Day7().parseInput(raw)
+        let input = Day7().parseInput(raw)
+        
+        print("IntCode Easter Egg: \(IntCode(program: input, input: []).runAscii())")
+        
+        return input
     }
     
     func problem1(_ input: Input) -> Int {
