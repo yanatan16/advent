@@ -8,7 +8,9 @@
 import Foundation
 
 let DEFAULT_DAY = "7"
-let DEFAULT_INPUT_FILE = "/Users/joneisen/Downloads/advent/input\(DEFAULT_DAY).txt"
+
+func defaultInputFile(day: String) -> String { "\(FileManager().homeDirectoryForCurrentUser.path)/dev/jon/advent/2021/inputs/input\(day).txt"
+}
 
 public func readInput(_ inputFile: String) throws -> String {
     return try! String(contentsOfFile: inputFile,
@@ -42,6 +44,6 @@ func main(day: String, inputFile: String) {
 
 let args = CommandLine.arguments.dropFirst()
 let day : String = args.first ?? DEFAULT_DAY
-let inputFile : String = args.dropFirst().first ?? DEFAULT_INPUT_FILE
+let inputFile : String = args.dropFirst().first ?? defaultInputFile(day: day)
 
 main(day: day, inputFile: inputFile)
