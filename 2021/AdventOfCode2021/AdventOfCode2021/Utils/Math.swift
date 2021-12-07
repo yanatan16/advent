@@ -40,3 +40,9 @@ extension Array where Element == Int {
         String(map { Character(UnicodeScalar($0)!) })
     }
 }
+
+extension Array where Element : Comparable {
+    func median() -> Element {
+        sorted()[(count+1)/2]
+    }
+}

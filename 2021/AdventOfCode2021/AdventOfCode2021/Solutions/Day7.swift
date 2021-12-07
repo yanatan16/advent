@@ -78,11 +78,7 @@ struct Day7Rewrite : Solution {
     }
     
     func problem1(_ input: Input) -> Int {
-        binarySearchMinimize(
-            lower: input.min()!,
-            upper: input.max()!,
-            f: { Day7().fuelCost(input, position: $0) }
-        ).y
+        Day7().fuelCost(input, position: input.median())
     }
     
     func increasingFuelCostEfficient(_ input: Input, position: Int) -> Int {
@@ -93,11 +89,14 @@ struct Day7Rewrite : Solution {
     }
     
     func problem2(_ input: Input) -> Int {
-        binarySearchMinimize(
+        let f = { increasingFuelCostEfficient(input, position: $0) }
+        let g = gradient(f, diff: 1)
+        let pos = binarySearchMinimize(
             lower: input.min()!,
             upper: input.max()!,
-            f: { increasingFuelCostEfficient(input, position: $0) }
-        ).y
+            slope: g
+        )
+        return f(pos)
     }
 }
 

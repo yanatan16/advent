@@ -7,28 +7,24 @@
 
 import Foundation
 
-func binarySearchMinimize(lower: Int, upper: Int, f: (Int) -> Int) -> (x: Int, y: Int) {
+func gradient<N:Numeric>(_ f: @escaping (N) -> N, diff: N) -> (N) -> N {
+    { x in f(x+diff) - f(x) }
+}
+
+func binarySearchMinimize<N:BinaryInteger>(lower: N, upper: N, slope: (N) -> N) -> N {
     if lower == upper {
-        return (lower, f(lower))
-    } else if lower + 1 == upper {
-        let lpair = (lower, f(lower))
-        let upair = (upper, f(upper))
-        if lpair.1 > upair.1 {
-            return upair
-        } else {
-            return lpair
-        }
+        return lower
     }
-            
-    let x1 = (lower + upper) / 2
-    let x2 = x1 + 1
-    let y1 = f(x1)
-    let y2 = f(x2)
     
-    if y1 < y2 {
-        return binarySearchMinimize(lower: lower, upper: x1, f: f)
+    let x = (lower + upper) / 2
+    let m = slope(x)
+    
+    if m > 0 {
+        return binarySearchMinimize(lower: lower, upper: x, slope: slope)
+    } else if m < 0 {
+        return binarySearchMinimize(lower: x + 1, upper: upper, slope: slope)
     } else {
-        return binarySearchMinimize(lower: x2, upper: upper, f: f)
+        return x
     }
 
 }
