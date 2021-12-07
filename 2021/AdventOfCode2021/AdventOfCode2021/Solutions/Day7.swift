@@ -45,6 +45,13 @@ struct Day7 : Solution {
         input.map { chart[abs(position - $0)] }.sum()
     }
     
+    func increasingFuelCostEfficient(_ input: Input, position: Int) -> Int {
+        input.map { i in
+            let diff = abs(position - i)
+            return diff * (diff + 1) / 2
+        }.sum()
+    }
+    
     func problem2(_ input: Input) -> Int {
         var fuelCostChart : [Int] = [0]
         for i in 1...2000 {
@@ -57,3 +64,37 @@ struct Day7 : Solution {
         return costs.min(by: { (p1, p2) in p1.1 <= p2.1 })!.1
     }
 }
+
+struct Day7Rewrite : Solution {
+    let exampleRawInput: String = Day7().exampleRawInput
+    typealias Input = Day7.Input
+    typealias Output = Day7.Output
+    func parseInput(_ raw: String) -> Input {
+        Day7().parseInput(raw)
+    }
+    
+    func problem1(_ input: Input) -> Int {
+        binarySearchMinimize(
+            lower: input.min()!,
+            upper: input.max()!,
+            f: { Day7().fuelCost(input, position: $0) }
+        ).y
+    }
+    
+    func increasingFuelCostEfficient(_ input: Input, position: Int) -> Int {
+        input.map { i in
+            let diff = abs(position - i)
+            return diff * (diff + 1) / 2
+        }.sum()
+    }
+    
+    func problem2(_ input: Input) -> Int {
+        binarySearchMinimize(
+            lower: input.min()!,
+            upper: input.max()!,
+            f: { increasingFuelCostEfficient(input, position: $0) }
+        ).y
+    }
+}
+
+// TODO binary search common code

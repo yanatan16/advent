@@ -21,6 +21,16 @@ extension Array where Element : Numeric {
     }
 }
 
+extension Array where Element : BinaryInteger {
+    func mean() -> Double {
+        Double(sum()) / Double(count)
+    }
+    func stdev() -> Double {
+        let m = mean()
+        return sqrt(map{ pow(Double($0) - m, 2) }.sum())
+    }
+}
+
 func twoToThePowerOf(_ exp: Int) -> Int {
     Int(pow(2.0, Double(exp)))
 }

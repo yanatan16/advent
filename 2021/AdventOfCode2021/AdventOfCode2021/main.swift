@@ -36,6 +36,7 @@ func main(day: String, inputFile: String) {
         Day6().run(rawInput)
     case "7":
         Day7().run(rawInput)
+        Day7Rewrite().run(rawInput)
     default:
         print("Didn't find solution for \(day)")
         exit(1)
