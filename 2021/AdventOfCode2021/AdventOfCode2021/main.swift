@@ -7,7 +7,7 @@
 
 import Foundation
 
-let DEFAULT_DAY = "7"
+let DEFAULT_DAY = "8"
 
 func defaultInputFile(day: String) -> String { "\(FileManager().homeDirectoryForCurrentUser.path)/dev/jon/advent/2021/inputs/input\(day).txt"
 }
@@ -37,6 +37,8 @@ func main(day: String, inputFile: String) {
     case "7":
         Day7().run(rawInput)
         Day7Rewrite().run(rawInput)
+    case "8":
+        Day8().run(rawInput)
     default:
         print("Didn't find solution for \(day)")
         exit(1)
