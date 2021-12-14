@@ -77,7 +77,7 @@ struct Day10 : Solution {
     func problem1(_ input: Input) -> Int {
         input.compactMap { (l:Line)->Character? in
             do {
-                try eval(l)
+                let _ = try eval(l)
                 return nil
             } catch Chunk.corrupted(let found) {
                 //print("line \(l) corrupted with \(found)")

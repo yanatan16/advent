@@ -28,14 +28,23 @@ extension Solution {
         print("Solving Problem 1: \(solve(input, problem1))")
         print("Solving Problem 2: \(solve(input, problem2))")
     }
+    
+    func runner() -> Runner {
+        Runner{ self.run($0) }
+    }
+    
+}
+
+struct Runner {
+    var run: (String) -> ()
 }
 
 extension String {
     public func splitlines() -> [String] {
-        self.components(separatedBy: "\n")
+        self.components(separatedBy: "\n").filter{ $0.count > 0 }
     }
     public func split2lines() -> [String] {
-        self.components(separatedBy: "\n\n")
+        self.components(separatedBy: "\n\n").filter{ $0.count > 0 }
     }
 }
 

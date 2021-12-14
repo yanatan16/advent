@@ -7,7 +7,24 @@
 
 import Foundation
 
-let DEFAULT_DAY = "11"
+let DEFAULT_DAY = "14"
+
+var Runners:[String:Runner] = [
+    "1":Day1().runner(),
+    "2":Day2().runner(),
+    "3":Day3().runner(),
+    "4":Day4().runner(),
+    "5":Day5().runner(),
+    "6":Day6().runner(),
+    "7":Day7().runner(),
+    "8":Day8().runner(),
+    "9":Day9().runner(),
+    "10":Day10().runner(),
+    "11":Day11().runner(),
+    "12":Day12().runner(),
+    "13":Day13().runner(),
+    "14":Day14().runner(),
+]
 
 func defaultInputFile(day: String) -> String { "\(FileManager().homeDirectoryForCurrentUser.path)/dev/jon/advent/2021/inputs/input\(day).txt"
 }
@@ -21,38 +38,12 @@ func main(day: String, inputFile: String) {
     let rawInput = try! readInput(inputFile)
     print("Read \(rawInput.count) characters from \(inputFile)")
     
-    switch day {
-    case "1":
-        Day1().run(rawInput)
-    case "2":
-        Day2().run(rawInput)
-    case "3":
-        Day3().run(rawInput)
-    case "4":
-        Day4().run(rawInput)
-    case "5":
-        Day5().run(rawInput)
-    case "6":
-        Day6().run(rawInput)
-    case "7":
-        Day7().run(rawInput)
-        Day7Rewrite().run(rawInput)
-    case "8":
-        Day8().run(rawInput)
-    case "9":
-        Day9().run(rawInput)
-    case "10":
-        Day10().run(rawInput)
-    case "11":
-        Day11().run(rawInput)
-    case "12":
-        Day12().run(rawInput)
-    case "13":
-        Day13().run(rawInput)
-    default:
+    guard let runner = Runners[day] else {
         print("Didn't find solution for \(day)")
         exit(1)
     }
+    
+    runner.run(rawInput)
 }
 
 let args = CommandLine.arguments.dropFirst()
