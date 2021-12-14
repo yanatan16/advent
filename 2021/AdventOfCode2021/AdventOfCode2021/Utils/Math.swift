@@ -43,6 +43,6 @@ extension Array where Element == Int {
 
 extension Array where Element : Comparable {
     func median() -> Element {
-        sorted()[(count+1)/2]
+        sorted()[(count-1)/2]
     }
 }
