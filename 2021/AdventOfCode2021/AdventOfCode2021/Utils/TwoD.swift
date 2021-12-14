@@ -65,6 +65,6 @@ extension Array where Element == Array<Int> {
     }
     
     mutating func safe2DSet(_ idx: TwoDIndex, _ v: Int) {
-        save2DUpdate(idx) { _ in v }
+        safe2DUpdate(idx) { _ in v }
     }
 }
