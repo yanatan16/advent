@@ -7,16 +7,21 @@
 
 import Foundation
 
-struct TwoDIndex : Hashable, CustomStringConvertible {
+struct TwoDIndex : Hashable, CustomStringConvertible, Equatable {
     let i:Int
     let j:Int
     
-    var description: String {
-        "2D<\(i),\(j)>"
-    }
     init(_ i:Int, _ j:Int) {
         self.i = i
         self.j = j
+    }
+    
+    static func ==(lhs: TwoDIndex, rhs: TwoDIndex) -> Bool {
+        lhs.i == rhs.i && lhs.j == rhs.j
+    }
+    
+    var description: String {
+        "2D<\(i),\(j)>"
     }
     
     func allNeighbors() -> [TwoDIndex] {
@@ -38,15 +43,22 @@ struct TwoDIndex : Hashable, CustomStringConvertible {
          TwoDIndex(i+1,j),
         ]
     }
+    
+    static func generateIndices(rows: Int, cols: Int) -> [TwoDIndex] {
+        (0...(rows-1)).flatMap { i in
+            (0...(cols-1)).map { j in
+                TwoDIndex(i,j)
+            }
+        }
+    }
 }
 
 extension Array where Element == Array<Int> {
     func twoDIndices() -> [TwoDIndex] {
-        indices.flatMap { i in
-            self[0].indices.map { j in
-                TwoDIndex(i,j)
-            }
-        }
+        TwoDIndex.generateIndices(
+            rows: indices.count,
+            cols: self[0].count
+        )
     }
     
     func safe2DGet(_ idx: TwoDIndex) -> Int? {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-let DEFAULT_DAY = "11"
+let DEFAULT_DAY = "15"
 
 var Runners:[String:Runner] = [
     "1":Day1().runner(),
@@ -24,6 +24,7 @@ var Runners:[String:Runner] = [
     "12":Day12().runner(),
     "13":Day13().runner(),
     "14":Day14().runner(),
+    "15":Day15().runner(),
 ]
 
 func defaultInputFile(day: String) -> String { "\(FileManager().homeDirectoryForCurrentUser.path)/dev/jon/advent/2021/inputs/input\(day).txt"
