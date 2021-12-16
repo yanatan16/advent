@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3327B082276AD80800EB38B4 /* Day16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3327B081276AD80800EB38B4 /* Day16.swift */; };
 		334444AC27694172006F05F7 /* TwoD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334444AB27694172006F05F7 /* TwoD.swift */; };
 		3386BD7F276A82B300C602B1 /* IterationPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3386BD7E276A82B300C602B1 /* IterationPrinter.swift */; };
 		3386BD81276A82D700C602B1 /* Djikstras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3386BD80276A82D700C602B1 /* Djikstras.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3327B081276AD80800EB38B4 /* Day16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day16.swift; sourceTree = "<group>"; };
 		334444AB27694172006F05F7 /* TwoD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoD.swift; sourceTree = "<group>"; };
 		3386BD7E276A82B300C602B1 /* IterationPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IterationPrinter.swift; sourceTree = "<group>"; };
 		3386BD80276A82D700C602B1 /* Djikstras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Djikstras.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				33A0DBA1276810F1001142FE /* Day13.swift */,
 				33A0DBA32768DAA0001142FE /* Day14.swift */,
 				33A0DBA5276A45E9001142FE /* Day15.swift */,
+				3327B081276AD80800EB38B4 /* Day16.swift */,
 			);
 			path = 2021;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				334444AC27694172006F05F7 /* TwoD.swift in Sources */,
 				33AEC1AC275EC2880068B48C /* Day7.swift in Sources */,
 				33A0DBA6276A45E9001142FE /* Day15.swift in Sources */,
+				3327B082276AD80800EB38B4 /* Day16.swift in Sources */,
 				33AEC191275E6D3B0068B48C /* main.swift in Sources */,
 				33A0DB9E276810E0001142FE /* Day11.swift in Sources */,
 				33AEC1AA275E7AE80068B48C /* Math.swift in Sources */,

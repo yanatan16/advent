@@ -46,3 +46,11 @@ extension Array where Element : Comparable {
         sorted()[(count-1)/2]
     }
 }
+
+extension Array where Element : Hashable {
+    func frequencies() -> [Element: Int] {
+        reduce(into: [:]) { (freqs, el) in
+            freqs[el, default: 0] += 1
+        }
+    }
+}
