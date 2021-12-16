@@ -12,14 +12,11 @@ struct Day : Solution {
 test
 """}
     
-    struct Input {
-        
-    }
-    
+    typealias Input = String
     typealias Output = Int
     
     func parseInput(_ raw: String) -> Input {
-        Input()
+        raw
     }
     
     func problem1(_ input: Input) -> Int {

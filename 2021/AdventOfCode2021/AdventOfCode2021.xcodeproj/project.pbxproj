@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3327B082276AD80800EB38B4 /* Day16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3327B081276AD80800EB38B4 /* Day16.swift */; };
+		3327B084276B00C400EB38B4 /* Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3327B083276B00C400EB38B4 /* Binary.swift */; };
 		334444AC27694172006F05F7 /* TwoD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334444AB27694172006F05F7 /* TwoD.swift */; };
 		3386BD7F276A82B300C602B1 /* IterationPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3386BD7E276A82B300C602B1 /* IterationPrinter.swift */; };
 		3386BD81276A82D700C602B1 /* Djikstras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3386BD80276A82D700C602B1 /* Djikstras.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		3327B081276AD80800EB38B4 /* Day16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day16.swift; sourceTree = "<group>"; };
+		3327B083276B00C400EB38B4 /* Binary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binary.swift; sourceTree = "<group>"; };
 		334444AB27694172006F05F7 /* TwoD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoD.swift; sourceTree = "<group>"; };
 		3386BD7E276A82B300C602B1 /* IterationPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IterationPrinter.swift; sourceTree = "<group>"; };
 		3386BD80276A82D700C602B1 /* Djikstras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Djikstras.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				33A0DBA7276A47F9001142FE /* SortedArray.swift */,
 				3386BD7E276A82B300C602B1 /* IterationPrinter.swift */,
 				3386BD80276A82D700C602B1 /* Djikstras.swift */,
+				3327B083276B00C400EB38B4 /* Binary.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33AEC1A4275E768F0068B48C /* Day3.swift in Sources */,
+				3327B084276B00C400EB38B4 /* Binary.swift in Sources */,
 				33A0DB9A2768047A001142FE /* Day9.swift in Sources */,
 				33AEC1A0275E76390068B48C /* Template.swift in Sources */,
 				33AEC1A2275E76830068B48C /* Day4.swift in Sources */,

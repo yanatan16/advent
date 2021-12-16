@@ -39,6 +39,10 @@ extension Array where Element == Int {
     func toAscii() -> String {
         String(map { Character(UnicodeScalar($0)!) })
     }
+    
+    func product() -> Int {
+        reduce(1, { $0 * $1 })
+    }
 }
 
 extension Array where Element : Comparable {
