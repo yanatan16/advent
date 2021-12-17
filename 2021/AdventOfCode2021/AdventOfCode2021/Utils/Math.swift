@@ -57,4 +57,8 @@ extension Array where Element : Hashable {
             freqs[el, default: 0] += 1
         }
     }
+    
+    func unique() -> [Element] {
+        Set(self).map{$0}
+    }
 }
