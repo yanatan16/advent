@@ -27,6 +27,14 @@ var Runners:[String:Runner] = [
     "15":Day15().runner(),
     "16":Day16().runner(),
     "17":Day17().runner(),
+    "18":Day18().runner(),
+    "19":Day18().runner(),
+    "20":Day20().runner(),
+    "21":Day21().runner(),
+    "22":Day22().runner(),
+    "23":Day23().runner(),
+    "24":Day24().runner(),
+    "25":Day25().runner(),
 ]
 
 func defaultInputFile(day: String) -> String { "\(FileManager().homeDirectoryForCurrentUser.path)/dev/jon/advent/2021/inputs/input\(day).txt"
