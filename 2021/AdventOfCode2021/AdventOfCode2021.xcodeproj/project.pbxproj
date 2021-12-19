@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3327B082276AD80800EB38B4 /* Day16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3327B081276AD80800EB38B4 /* Day16.swift */; };
 		3327B084276B00C400EB38B4 /* Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3327B083276B00C400EB38B4 /* Binary.swift */; };
+		332993B1276EA5CF009246AE /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332993B0276EA5CF009246AE /* Array.swift */; };
 		334444AC27694172006F05F7 /* TwoD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334444AB27694172006F05F7 /* TwoD.swift */; };
 		334444AE276C507E006F05F7 /* Day17.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334444AD276C507E006F05F7 /* Day17.swift */; };
 		334444B0276CE71A006F05F7 /* Day18.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334444AF276CE71A006F05F7 /* Day18.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		3327B081276AD80800EB38B4 /* Day16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day16.swift; sourceTree = "<group>"; };
 		3327B083276B00C400EB38B4 /* Binary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binary.swift; sourceTree = "<group>"; };
+		332993B0276EA5CF009246AE /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		334444AB27694172006F05F7 /* TwoD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoD.swift; sourceTree = "<group>"; };
 		334444AD276C507E006F05F7 /* Day17.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day17.swift; sourceTree = "<group>"; };
 		334444AF276CE71A006F05F7 /* Day18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day18.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				3386BD7E276A82B300C602B1 /* IterationPrinter.swift */,
 				3386BD80276A82D700C602B1 /* Djikstras.swift */,
 				3327B083276B00C400EB38B4 /* Binary.swift */,
+				332993B0276EA5CF009246AE /* Array.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				33A0DB96275FD817001142FE /* IntCode.swift in Sources */,
 				33A0DBA42768DAA0001142FE /* Day14.swift in Sources */,
 				334444AC27694172006F05F7 /* TwoD.swift in Sources */,
+				332993B1276EA5CF009246AE /* Array.swift in Sources */,
 				33AEC1AC275EC2880068B48C /* Day7.swift in Sources */,
 				33A0DBA6276A45E9001142FE /* Day15.swift in Sources */,
 				3327B082276AD80800EB38B4 /* Day16.swift in Sources */,

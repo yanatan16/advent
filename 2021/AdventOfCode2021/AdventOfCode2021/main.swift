@@ -7,7 +7,7 @@
 
 import Foundation
 
-let DEFAULT_DAY = "17"
+let DEFAULT_DAY = "18"
 
 var Runners:[String:Runner] = [
     "1":Day1().runner(),
@@ -27,7 +27,7 @@ var Runners:[String:Runner] = [
     "15":Day15().runner(),
     "16":Day16().runner(),
     "17":Day17().runner(),
-    "18":Day18().runner(),
+    "18":Day18Rewrite().runner(),
     "19":Day18().runner(),
     "20":Day20().runner(),
     "21":Day21().runner(),

@@ -62,3 +62,4 @@ extension Array where Element : Hashable {
         Set(self).map{$0}
     }
 }
+
