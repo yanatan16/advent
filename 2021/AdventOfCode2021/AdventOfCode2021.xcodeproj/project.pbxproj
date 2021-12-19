@@ -10,6 +10,7 @@
 		3327B082276AD80800EB38B4 /* Day16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3327B081276AD80800EB38B4 /* Day16.swift */; };
 		3327B084276B00C400EB38B4 /* Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3327B083276B00C400EB38B4 /* Binary.swift */; };
 		332993B1276EA5CF009246AE /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332993B0276EA5CF009246AE /* Array.swift */; };
+		332993B3276FDB44009246AE /* ThreeD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332993B2276FDB44009246AE /* ThreeD.swift */; };
 		334444AC27694172006F05F7 /* TwoD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334444AB27694172006F05F7 /* TwoD.swift */; };
 		334444AE276C507E006F05F7 /* Day17.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334444AD276C507E006F05F7 /* Day17.swift */; };
 		334444B0276CE71A006F05F7 /* Day18.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334444AF276CE71A006F05F7 /* Day18.swift */; };
@@ -62,6 +63,7 @@
 		3327B081276AD80800EB38B4 /* Day16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day16.swift; sourceTree = "<group>"; };
 		3327B083276B00C400EB38B4 /* Binary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binary.swift; sourceTree = "<group>"; };
 		332993B0276EA5CF009246AE /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		332993B2276FDB44009246AE /* ThreeD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeD.swift; sourceTree = "<group>"; };
 		334444AB27694172006F05F7 /* TwoD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoD.swift; sourceTree = "<group>"; };
 		334444AD276C507E006F05F7 /* Day17.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day17.swift; sourceTree = "<group>"; };
 		334444AF276CE71A006F05F7 /* Day18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day18.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				3386BD80276A82D700C602B1 /* Djikstras.swift */,
 				3327B083276B00C400EB38B4 /* Binary.swift */,
 				332993B0276EA5CF009246AE /* Array.swift */,
+				332993B2276FDB44009246AE /* ThreeD.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				33A0DB9A2768047A001142FE /* Day9.swift in Sources */,
 				33AEC1A0275E76390068B48C /* Template.swift in Sources */,
 				33AEC1A2275E76830068B48C /* Day4.swift in Sources */,
+				332993B3276FDB44009246AE /* ThreeD.swift in Sources */,
 				3386BD7F276A82B300C602B1 /* IterationPrinter.swift in Sources */,
 				33AEC19E275E744C0068B48C /* Day5.swift in Sources */,
 				334444BE276CE75B006F05F7 /* Day25.swift in Sources */,
