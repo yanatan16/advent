@@ -370,7 +370,7 @@ struct Day19 : Solution {
                 return nil
             }
         }
-        print("Valid Rotations \(validRotations)")
+        // print("Valid Rotations \(validRotations)")
         
         return validRotations.first
     }
@@ -387,7 +387,7 @@ struct Day19 : Solution {
                     let shared = known.sharedNodes(other: unknown)
                     
                     if shared.count >= 12 {
-                        print("evaluating pair \(known.num)->\(unknown.num)")
+                        // print("evaluating pair \(known.num)->\(unknown.num)")
                         // Found a pair of scanners to map.
                         let sharedNodesPositions = shared.map { (i,j) in
                             (known.beacons[i], unknown.beacons[j])
