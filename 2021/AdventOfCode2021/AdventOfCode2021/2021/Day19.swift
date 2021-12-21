@@ -146,7 +146,7 @@ struct Day19 : Solution {
     -652,-548,-490
     30,-46,-14
     """}
-    
+     
     struct Scanner:CustomStringConvertible {
         let num: Int
         var beacons: [ThreeDPoint]
