@@ -121,13 +121,11 @@
 				33A0DB93275FCDBB001142FE /* Search.swift */,
 				33A0DB95275FD817001142FE /* IntCode.swift */,
 				334444AB27694172006F05F7 /* TwoD.swift */,
-				33A0DBA7276A47F9001142FE /* SortedArray.swift */,
 				3386BD7E276A82B300C602B1 /* IterationPrinter.swift */,
 				3386BD80276A82D700C602B1 /* Djikstras.swift */,
 				3327B083276B00C400EB38B4 /* Binary.swift */,
 				332993B0276EA5CF009246AE /* Array.swift */,
 				332993B2276FDB44009246AE /* ThreeD.swift */,
-				33EFC6BB2771A5E100C4D98C /* BigInt.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -151,6 +149,7 @@
 		33AEC18F275E6D3B0068B48C /* AdventOfCode2021 */ = {
 			isa = PBXGroup;
 			children = (
+				33EFC6BD2772E80000C4D98C /* DownloadedFromGithub */,
 				33A0DB92275FCD14001142FE /* Utils */,
 				33AEC197275E6D830068B48C /* 2021 */,
 				33AEC190275E6D3B0068B48C /* main.swift */,
@@ -190,6 +189,15 @@
 				334444BD276CE75B006F05F7 /* Day25.swift */,
 			);
 			path = 2021;
+			sourceTree = "<group>";
+		};
+		33EFC6BD2772E80000C4D98C /* DownloadedFromGithub */ = {
+			isa = PBXGroup;
+			children = (
+				33EFC6BB2771A5E100C4D98C /* BigInt.swift */,
+				33A0DBA7276A47F9001142FE /* SortedArray.swift */,
+			);
+			path = DownloadedFromGithub;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

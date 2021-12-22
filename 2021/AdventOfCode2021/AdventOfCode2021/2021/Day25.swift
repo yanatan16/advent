@@ -20,7 +20,8 @@ test
     }
     
     func problem1(_ input: Input) -> Int {
-        -1
+        print("input: \(input)")
+        return -1
     }
     
     func problem2(_ input: Input) -> Int {
