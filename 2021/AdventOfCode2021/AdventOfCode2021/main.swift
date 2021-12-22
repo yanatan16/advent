@@ -7,7 +7,7 @@
 
 import Foundation
 
-let DEFAULT_DAY = "22"
+let DEFAULT_DAY = "23"
 
 var Runners:[String:Runner] = [
     "1":Day1().runner(),
@@ -40,14 +40,19 @@ var Runners:[String:Runner] = [
 func defaultInputFile(day: String) -> String { "\(FileManager().homeDirectoryForCurrentUser.path)/dev/jon/advent/2021/inputs/input\(day).txt"
 }
 
-public func readInput(_ inputFile: String) throws -> String {
-    return try! String(contentsOfFile: inputFile,
+public func readInput(_ inputFile: String) -> String? {
+    return try? String(contentsOfFile: inputFile,
                        encoding: String.Encoding.utf8)
 }
 
 func main(day: String, inputFile: String) {
-    let rawInput = try! readInput(inputFile)
-    print("Read \(rawInput.count) characters from \(inputFile)")
+    let rawInput = readInput(inputFile)
+    
+    if rawInput != nil {
+        print("Read \(rawInput!.count) characters from \(inputFile)")
+    } else {
+        print("Didn't find Input File: \(inputFile)")
+    }
     
     guard let runner = Runners[day] else {
         print("Didn't find solution for \(day)")

@@ -17,12 +17,18 @@ protocol Solution {
 }
 
 extension Solution {
-    func run(_ raw: String) {
+    func run(_ raw: String?) {
         let example = parseInput(exampleRawInput)
         
         print("Example Problem 1: \(solve(example, problem1))")
         print("Example Problem 2: \(solve(example, problem2))")
         
+        guard let raw = raw
+        else {
+            print("Not running real problem because no input file found")
+            return
+        }
+            
         let input = parseInput(raw)
         
         print("Solving Problem 1: \(solve(input, problem1))")
@@ -36,7 +42,7 @@ extension Solution {
 }
 
 struct Runner {
-    var run: (String) -> ()
+    var run: (String?) -> ()
 }
 
 extension String {
