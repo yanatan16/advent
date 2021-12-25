@@ -75,6 +75,7 @@
 		334444B9276CE74E006F05F7 /* Day23.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day23.swift; sourceTree = "<group>"; };
 		334444BB276CE755006F05F7 /* Day24.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day24.swift; sourceTree = "<group>"; };
 		334444BD276CE75B006F05F7 /* Day25.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day25.swift; sourceTree = "<group>"; };
+		334444BF27759365006F05F7 /* Day24.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Day24.md; sourceTree = "<group>"; };
 		3386BD7E276A82B300C602B1 /* IterationPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IterationPrinter.swift; sourceTree = "<group>"; };
 		3386BD80276A82D700C602B1 /* Djikstras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Djikstras.swift; sourceTree = "<group>"; };
 		33A0DB93275FCDBB001142FE /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 				334444B9276CE74E006F05F7 /* Day23.swift */,
 				334444BB276CE755006F05F7 /* Day24.swift */,
 				334444BD276CE75B006F05F7 /* Day25.swift */,
+				334444BF27759365006F05F7 /* Day24.md */,
 			);
 			path = 2021;
 			sourceTree = "<group>";
