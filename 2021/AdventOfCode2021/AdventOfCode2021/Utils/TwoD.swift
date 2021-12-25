@@ -51,6 +51,22 @@ struct TwoDIndex : Hashable, CustomStringConvertible, Equatable {
             }
         }
     }
+    
+    func down() -> TwoDIndex {
+        TwoDIndex(i+1,j)
+    }
+    
+    func right() -> TwoDIndex {
+        TwoDIndex(i,j+1)
+    }
+    
+    func wrappingRight(cols: Int) -> TwoDIndex {
+        TwoDIndex(i,(j+1) % cols)
+    }
+    
+    func wrappingDown(rows: Int) -> TwoDIndex {
+        TwoDIndex((i+1) % rows, j)
+    }
 }
 
 extension Array where Element == Array<Int> {
