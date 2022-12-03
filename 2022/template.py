@@ -17,7 +17,7 @@ def part2(input: Input) -> int:
 
 def main(input_file):
     with open(input_file) as f:
-        input = parse_input(f.read())
+        input = parse_input(f.read().strip())
 
     print('Part 1:', part1(input))
     print('Part 2:', part2(input))
