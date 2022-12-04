@@ -1,13 +1,18 @@
 # Advent of Code 2022 Day XX
 import sys
-from typing import List
+from typing import *
+from dataclasses import dataclass
 
-Input = List[str]
+@dataclass
+class Input:
+    lines: List[str]
 
 def parse_input(raw: str) -> Input:
-    return [
-        line for line in raw.splitlines()
-    ]
+    return Input(
+        lines=[
+            line for line in raw.splitlines()
+        ]
+    )
 
 def part1(input: Input) -> int:
     return -1
@@ -24,4 +29,3 @@ def main(input_file):
 
 if __name__ == '__main__':
     main(sys.argv[1])
-
