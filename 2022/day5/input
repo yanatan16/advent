@@ -1,0 +1,1 @@
+(sep: str | None = ..., maxsplit: SupportsIndex = ...) -> list[str]
