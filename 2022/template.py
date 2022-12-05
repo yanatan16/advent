@@ -7,6 +7,8 @@ from dataclasses import dataclass
 class Input:
     lines: List[str]
 
+Output = int
+
 def parse_input(raw: str) -> Input:
     return Input(
         lines=[
@@ -14,10 +16,10 @@ def parse_input(raw: str) -> Input:
         ]
     )
 
-def part1(input: Input) -> int:
+def part1(input: Input) -> Output:
     return -1
 
-def part2(input: Input) -> int:
+def part2(input: Input) -> Output:
     return -1
 
 def main(input_file):
