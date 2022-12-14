@@ -2,6 +2,7 @@
 import sys
 from typing import *
 from dataclasses import dataclass
+import enum
 
 @dataclass
 class Input:
