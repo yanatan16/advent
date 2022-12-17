@@ -374,6 +374,9 @@ def part2(input: Input) -> Output:
             print('new best', best_plans, best_score)
     return best_score
 
+# part 2 answer
+# best (['AA', 'FG', 'NZ', 'FD', 'CW', 'QW', 'UP', 'AD'], ['AA', 'CH', 'VQ', 'SG', 'ML', 'AT', 'BD']) 2723
+
 def main(input_file):
     with open(input_file) as f:
         input = parse_input(f.read().strip())
