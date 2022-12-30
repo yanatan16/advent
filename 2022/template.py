@@ -3,6 +3,8 @@ import sys
 from typing import *
 from dataclasses import dataclass
 import enum
+from functools import reduce
+
 
 @dataclass
 class Input:
@@ -23,12 +25,15 @@ def part1(input: Input) -> Output:
 def part2(input: Input) -> Output:
     return -1
 
-def main(input_file):
+def main(input_file, skip=None):
     with open(input_file) as f:
         input = parse_input(f.read().strip())
 
-    print('Part 1:', part1(input))
+    if skip != 'skip':
+        print('Part 1:', part1(input))
+    else:
+        print('Skipping Part 1')
     print('Part 2:', part2(input))
 
 if __name__ == '__main__':
-    main(sys.argv[1])
+    main(*sys.argv[1:])
