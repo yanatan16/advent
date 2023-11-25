@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "advent-2017"
+version = "0.1.0"
+description = "Advent of code 2023"
+authors = ["Jon Eisen"]
+license = "MIT"
+readme = "README.md"
+packages = [
+  { include = "solutions2017" }
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+httpx = "^0.25.1"
+parsita = "^2.1.1"
+tqdm = "^4.66.1"
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.17.2"
+ipdb = "^0.13.13"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+template.script = "solutions2017.template:main"
+run.script = "solutions2017.run:main"
