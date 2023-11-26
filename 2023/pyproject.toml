@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "advent-2017"
+name = "advent-2023"
 version = "0.1.0"
-description = "Advent of code 2017"
+description = "Advent of code 2023"
 authors = ["Jon Eisen"]
 license = "MIT"
 readme = "README.md"
 packages = [
-  { include = "solutions2017" }
+  { include = "solutions2023" }
 ]
 
 
@@ -25,5 +25,5 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
-template.script = "solutions2017.template:main"
-run.script = "solutions2017.run:main"
+template.script = "solutions2023.template:main"
+run.script = "solutions2023.run:main"
