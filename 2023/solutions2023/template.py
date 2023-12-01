@@ -2,12 +2,7 @@ import sys
 from pathlib import Path
 
 template = '''from typing import *
-from dataclasses import dataclass
-fro enum import Enum
-import itertools, collections, functools
-import parsita as p
-from tqdm import tqdm
-from solutions2017.lib import *
+from solutions2023.lib import *
 
 Input = List[int]
 
@@ -15,6 +10,7 @@ class Parsers(p.ParserContext, whitespace=r'[ \\t]*'):
   input = p.repsep(UtilityParsers.integer, ',')
 
 class DayXX(Advent[Input]):
+    year = 2023
     day = XX
 
     samples = [
