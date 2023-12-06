@@ -4,6 +4,7 @@ from .runner import Advent
 from .parsers import UtilityParsers
 from .walk import walk
 from .sparse_grid import SparseGrid
+from .ranges import Range
 from . import twod, threed, hexd
 
 from dataclasses import dataclass
@@ -28,5 +29,6 @@ __all__ = [
     'functools',
     'p',
     'tqdm',
-    're'
+    're',
+    'Range'
 ]
