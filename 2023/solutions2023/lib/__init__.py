@@ -1,4 +1,5 @@
-from typing import *
+import sys
+
 from .input import get_input
 from .runner import Advent
 from .parsers import UtilityParsers
@@ -9,9 +10,13 @@ from . import twod, threed, hexd
 
 from dataclasses import dataclass
 from enum import Enum
-import itertools, collections, functools, re
+import itertools, collections, functools, re, math
 import parsita as p
 from tqdm import tqdm
+
+def debug(*args):
+    if '-v' in sys.argv:
+        print(*args)
 
 __all__ = [
     'get_input',
@@ -30,5 +35,7 @@ __all__ = [
     'p',
     'tqdm',
     're',
-    'Range'
+    'Range',
+    'debug',
+    'math'
 ]
