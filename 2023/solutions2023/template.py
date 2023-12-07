@@ -7,7 +7,9 @@ from solutions2023.lib import *
 Input = List[int]
 
 class Parsers(p.ParserContext, whitespace=r'[ \\t]*'):
-  input = p.repsep(UtilityParsers.integer, ',')
+  n = UtilityParsers.integer
+  line = n
+  input = p.repsep(line, '\n')
 
 class DayXX(Advent[Input]):
     year = 2023
