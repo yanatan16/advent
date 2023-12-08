@@ -7,6 +7,7 @@ from .walk import walk
 from .sparse_grid import SparseGrid
 from .ranges import Range
 from . import twod, threed, hexd
+from .utils import freqlist, freqs
 
 from dataclasses import dataclass
 from enum import Enum
@@ -37,5 +38,7 @@ __all__ = [
     're',
     'Range',
     'debug',
-    'math'
+    'math',
+    'freqlist',
+    'freqs'
 ]

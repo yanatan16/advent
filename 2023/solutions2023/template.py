@@ -9,7 +9,7 @@ Input = List[int]
 class Parsers(p.ParserContext, whitespace=r'[ \\t]*'):
   n = UtilityParsers.integer
   line = n
-  input = p.repsep(line, '\n')
+  input = p.repsep(line, '\\n')
 
 class DayXX(Advent[Input]):
     year = 2023
