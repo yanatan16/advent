@@ -60,17 +60,15 @@ def bfs(costs: List[List[int]], start: twod.Coord, target: twod.Coord, part2: bo
   discovered: Dict[Tuple[twod.Coord, twod.Direction | None, int], int] = collections.defaultdict(lambda: 100000)
   discovered[(start, None, 1)] = 0
 
-  q = [Path([start], None, 1, 0)]
+  q = PriorityQueue(key=lambda path: (path.cost, -path.last_node.manhatten_distance))
+  q.push(Path([start], None, 1, 0))
 
-  while len(q) > 0:
-    q.sort(key=lambda p: (-p.cost, p.last_node.manhatten_distance))
+  while len(q.q) > 0:
     p = q.pop()
-    print(f'{p.last_node.manhatten_distance} {p.cost} {len(discovered)} ({len(costs)}x{len(costs[0])})')
+    debug(f'{p.last_node.manhatten_distance} {p.cost} {len(discovered)} ({len(costs)}x{len(costs[0])})')
     for path in p.adj_paths(costs, part2):
-      if path.nodes[-1] == target:
-        print(f'Reached last node in {path}')
       if path.cost < discovered[path.sans_cost]:
-        q += [path]
+        q.push(path)
         discovered[path.sans_cost] = path.cost
 
   return min(value for path, value in discovered.items() if path[0] == target)
@@ -100,7 +98,6 @@ class Day17(Advent[Input]):
         return Parsers.input.parse(raw.strip()).unwrap()
 
     def solve1(self, input: Input) -> Any:
-      return -1
       return bfs(input, twod.Coord(0,0), twod.Coord(len(input)-1, len(input[0])-1))
 
     def solve2(self, input: Input) -> Any:

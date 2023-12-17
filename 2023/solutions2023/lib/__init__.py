@@ -8,6 +8,7 @@ from .sparse_grid import SparseGrid
 from .ranges import Range
 from . import twod, threed, hexd
 from .utils import freqlist, freqs
+from .priorityqueue import PriorityQueue
 
 from dataclasses import dataclass
 from enum import Enum
@@ -40,5 +41,6 @@ __all__ = [
     'debug',
     'math',
     'freqlist',
-    'freqs'
+    'freqs',
+    'PriorityQueue'
 ]
