@@ -1,4 +1,5 @@
 from typing import *
+from dataclasses import dataclass
 
 T = TypeVar('T')
 
@@ -58,25 +59,25 @@ class Coord(NamedTuple):
 
         map[self.x][self.y] = value
 
-    def right(self) -> 'Coord':
-        return Coord(x=self.x,y=self.y+1)
-    def left(self) -> 'Coord':
-        return Coord(x=self.x,y=self.y-1)
-    def up(self) -> 'Coord':
-        return Coord(x=self.x-1,y=self.y)
-    def down(self) -> 'Coord':
-        return Coord(x=self.x+1,y=self.y)
+    def right(self, n: int = 1) -> 'Coord':
+        return Coord(x=self.x,y=self.y+n)
+    def left(self, n: int = 1) -> 'Coord':
+        return Coord(x=self.x,y=self.y-n)
+    def up(self, n: int = 1) -> 'Coord':
+        return Coord(x=self.x-n,y=self.y)
+    def down(self, n: int = 1) -> 'Coord':
+        return Coord(x=self.x+n,y=self.y)
 
-    def move(self, dir: Direction):
+    def move(self, dir: Direction, n: int = 1):
         match dir:
           case 'left':
-            return self.left()
+            return self.left(n)
           case 'right':
-            return self.right()
+            return self.right(n)
           case 'up':
-            return self.up()
+            return self.up(n)
           case 'down':
-            return self.down()
+            return self.down(n)
 
     def __str__(self) -> str:
         return f'({self.x},{self.y})'
@@ -99,3 +100,35 @@ class Coord(NamedTuple):
     @property
     def manhatten_distance(self) -> int:
         return abs(self.x) + abs(self.y)
+
+
+@dataclass
+class Edge:
+  start: Coord
+  end: Coord
+
+  def __len__(self) -> int:
+      if self.start.x == self.end.x:
+          return abs(self.start.y - self.end.y)
+      else:
+          return abs(self.start.x - self.end.x)
+
+  def contains(self, c: Coord) -> bool:
+    if self.start.x == self.end.x:
+      return c.x == self.start.x and min(self.start.y, self.end.y) <= c.y <= max(self.start.y, self.end.y)
+    else:
+      return c.y == self.start.y and min(self.start.x, self.end.x) <= c.x <= max(self.start.x, self.end.x)
+
+  @staticmethod
+  def area(edges: List['Edge']) -> int:
+      inner_area = int(abs(sum(
+          (edge.start.x - edge.end.x) * (edge.start.y + edge.end.y) / 2
+          for edge in edges
+      )))
+      outer_area = int(Edge.circumference(edges) / 2 + 1)
+
+      return inner_area + outer_area
+
+  @staticmethod
+  def circumference(edges: List['Edge']) -> int:
+      return sum(len(e) for e in edges)
