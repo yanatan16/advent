@@ -28,48 +28,37 @@ class Day21(Advent[Input]):
     def parse(self, raw: str) -> Input:
         return Parsers.input.parse(raw.strip()).unwrap()
 
-    def solve1(self, input: Input) -> Any:
-      all_coords = twod.Coord.all_coords(input)
-      start = [c for c in all_coords if c.get(input) == 'S'][0]
+    def walk(self, input: Input, n:int) -> int:
+      start = [c for c in twod.Coord.all_coords(input) if c.get(input) == 'S'][0]
 
       q = {start}
-      for step in range(64 if len(input) > 30 else 6):
-        # debug(f'Step {step+1}')
-        # debug('\n'.join(
-        #   ''.join(
-        #     'O' if twod.Coord(i,j) in q
-        #     else twod.Coord(i,j).get(input)
-        #     for j in range(len(input[0]))
-        #   )
-        #   for i in range(len(input))
-        # ))
-
+      for step in range(n):
         q = {
           neighbor
-          for coord in q
-          for neighbor in coord.neighbors()
-          if neighbor.get(input) in '.S'
-        }
-
-      return len(q)
-
-    def solve2(self, input: Input) -> Any:
-      all_coords = twod.Coord.all_coords(input)
-      start = [c for c in all_coords if c.get(input) == 'S'][0]
-
-      q = {start}
-      for step in tqdm(range(26501365 if len(input) > 30 else 100)):
-        if step in (6, 10, 50, 100, 500, 1000, 5000):
-          debug(f'Step {step}: {len(q)}')
-
-        q = {
-          neighbor.wrap(input)
           for coord in q
           for neighbor in coord.neighbors()
           if neighbor.wrap(input).get(input) in '.S'
         }
 
+      debug(f'walk({n}) = {len(q)}')
       return len(q)
+
+    def solve1(self, input: Input, s=None, n= None) -> Any:
+      return self.walk(input, 64 if len(input) > 30 else 6)
+
+    def solve2(self, input: Input) -> Any:
+      w = h = len(input)
+
+      target = 26501365 if len(input) > 30 else 5000
+
+      rem = target % w
+
+      polypoints = [rem, rem+w, rem+2*w]
+      polyvals = [self.walk(input, p) for p in polypoints]
+
+      coeffs = np.polyfit([0,1,2], polyvals, deg=2)
+      return np.polyval(coeffs, target // w).round().astype(int)
+
 
 if __name__ == '__main__':
     Day21().main()

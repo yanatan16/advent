@@ -94,6 +94,9 @@ class Coord(NamedTuple):
             for y in range(ymin, ymax):
                 yield Coord(x=x, y=y)
 
+    def __add__(self, other: 'Coord') -> 'Coord':
+        return Coord(self.x + other.x, self.y + other.y)
+
     def __sub__(self, other: 'Coord') -> 'Coord':
         return Coord(self.x - other.x, self.y - other.y)
 

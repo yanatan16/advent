@@ -15,6 +15,7 @@ from enum import Enum
 import itertools, collections, functools, re, math
 import parsita as p
 from tqdm import tqdm
+import numpy as np
 
 def debug(*args):
     if '-v' in sys.argv:
@@ -42,5 +43,6 @@ __all__ = [
     'math',
     'freqlist',
     'freqs',
-    'PriorityQueue'
+    'PriorityQueue',
+    'np'
 ]
