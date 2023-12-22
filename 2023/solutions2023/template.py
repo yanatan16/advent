@@ -7,6 +7,7 @@ from solutions2023.lib import *
 Input = List[int]
 
 class Parsers(p.ParserContext, whitespace=r'[ \\t]*'):
+  mapline = p.reg(r'[.#]+')
   n = UtilityParsers.integer
   line = n
   input = p.repsep(line, '\\n')

@@ -101,6 +101,22 @@ class Coord(NamedTuple):
     def manhatten_distance(self) -> int:
         return abs(self.x) + abs(self.y)
 
+    def wrap(self, xmax_or_map: int | List[List[T]], ymax: int = 0, xmin: int = 0, ymin: int = 0) -> 'Coord':
+        if isinstance(xmax_or_map, list):
+            xmax = len(xmax_or_map)
+            ymax = len(xmax_or_map[0])
+        else:
+            xmax = xmax_or_map
+
+        if self.inbounds(xmax, ymax, xmin, ymin):
+            return self
+
+        return Coord(
+            x=((self.x - xmin) % xmax) + xmin,
+            y=((self.y - ymin) % ymax) + ymin,
+        )
+
+
 
 @dataclass
 class Edge:
