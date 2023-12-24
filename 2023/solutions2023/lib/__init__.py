@@ -16,6 +16,7 @@ import itertools, collections, functools, re, math
 import parsita as p
 from tqdm import tqdm
 import numpy as np
+import scipy, sympy, networkx
 
 def debug(*args):
     if '-v' in sys.argv:
@@ -44,5 +45,8 @@ __all__ = [
     'freqlist',
     'freqs',
     'PriorityQueue',
-    'np'
+    'np',
+    'scipy',
+    'sympy',
+    'networkx'
 ]

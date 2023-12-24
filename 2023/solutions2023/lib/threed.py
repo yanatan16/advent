@@ -1,4 +1,5 @@
 from typing import *
+import math
 
 T = TypeVar('T')
 
@@ -21,11 +22,21 @@ class Coord(NamedTuple):
             z=self.z - other.z
         )
 
+    def __mul__(self, other: int) -> 'Coord':
+        return Coord(x=self.x*other,y=self.y*other,z=self.z*other)
+
+    def __truediv__(self, other: int) -> 'Coord':
+        return Coord(x=self.x/other,y=self.y/other,z=self.z/other)
+
     def __eq__(self, other: 'Coord') -> bool:
         return self.x == other.x and self.y == other.y and self.z == other.z
 
+
     def norm1(self) -> int:
         return abs(self.x) + abs(self.y) + abs(self.z)
+
+    def norm2(self) -> float:
+        return math.sqrt(self.x**2+self.y**2+self.z**2)
 
     def neighbors(self) -> List['Coord']:
         return [
