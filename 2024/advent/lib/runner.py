@@ -8,6 +8,7 @@ class Advent(Generic[Input]):
     year: int = 2023
     day: int
     samples: List[str] = []
+    _verbose: bool = False
 
     def __init__(self):
         self._input = get_input(self.year, self.day)
@@ -22,6 +23,7 @@ class Advent(Generic[Input]):
         pass
 
     def _run(self, raw: str, verbose=False):
+        self._verbose = verboase
         parsed = self.parse(raw)
         try:
             print(f'Part 1: {self.solve1(parsed)}')
@@ -35,6 +37,10 @@ class Advent(Generic[Input]):
             print(f'Part 2 Failed! {e}')
             if verbose:
                 raise e
+
+    def _print(self, *args, **kwargs):
+        if self._verbose:
+            print(*args, **kwargs)
 
     def main(self):
         for i, sample in enumerate(self.samples):
