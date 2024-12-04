@@ -33,8 +33,12 @@ class Problem2Parser(p.ParserContext):
   mul = (p.lit('mul(') >> p.repsep(n, ',', min=2, max=2) << p.lit(')')) > (lambda ns: Mul(*ns))
   do = p.lit('do()') > (lambda _: Do())
   dont = p.lit("don't()") > (lambda _: Dont())
-  prob2item = mul | do | dont | junk
-  line = p.rep(prob2item)
+  instruction = mul | do | dont | junk
+  line = p.rep(instruction) > (lambda line: [
+    instr
+    for instr in line
+    if isinstance(instr, Mul | Do | Dont)
+  ])
 
 class Day3(Advent[Input]):
     year = 2024
