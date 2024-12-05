@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import httpx
+import sys
 
 def get_input(year: int, day: int) -> str:
     fn = Path(__file__).parent.parent.parent / f'.inputs/{year}/{day}.txt'
@@ -11,6 +12,11 @@ def get_input(year: int, day: int) -> str:
         session_cookie = os.environ['ADVENT_SESSION_COOKIE']
         with httpx.Client() as client:
             resp = client.get(f'https://adventofcode.com/{year}/day/{day}/input', headers={'Cookie': f'session={session_cookie}'})
+
+            if resp.status_code == 404:
+                print(f"{year} Day {day} hasn't started yet, it comes out midnight EST on December {day}")
+                sys.exit(1)
+
             resp.raise_for_status()
 
             body = resp.text
