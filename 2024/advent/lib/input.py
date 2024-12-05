@@ -2,6 +2,8 @@ import os
 from pathlib import Path
 import httpx
 import sys
+import datetime
+import zoneinfo
 
 def get_input(year: int, day: int) -> str:
     fn = Path(__file__).parent.parent.parent / f'.inputs/{year}/{day}.txt'
@@ -14,7 +16,10 @@ def get_input(year: int, day: int) -> str:
             resp = client.get(f'https://adventofcode.com/{year}/day/{day}/input', headers={'Cookie': f'session={session_cookie}'})
 
             if resp.status_code == 404:
-                print(f"{year} Day {day} hasn't started yet, it comes out midnight EST on December {day}")
+                release = datetime.datetime(2024, 12, 6, tzinfo=zoneinfo.ZoneInfo("America/New_York"))
+                now = datetime.datetime.now(zoneinfo.ZoneInfo("UTC"))
+                time_to_release = release - now
+                print(f"{year} Day {day} hasn't started yet, it comes out midnight EST on December {day}, which {time_to_release} away")
                 sys.exit(1)
 
             resp.raise_for_status()
