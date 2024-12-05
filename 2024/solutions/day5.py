@@ -90,13 +90,21 @@ class Day5(Advent[Input]):
 
       return correct
 
+    def correct_ordering_with_sort(self, update: Update, orders: List[Order]):
+      order_lookup = {tuple(sorted(order)): order for order in orders}
+
+      def cmp(p1: int, p2: int) -> int:
+        order = order_lookup[tuple(sorted((p1, p2)))]
+        return 1 if p1 == order[0] else -1
+
+      return sorted(update, key=functools.cmp_to_key(cmp))
+
 
     def solve2(self, input: Input) -> Any:
       orders, updates = input
 
-
       return sum(
-        self.middle_page(self.correct_ordering(update, orders))
+        self.middle_page(self.correct_ordering_with_sort(update, orders))
         for update in updates
         if not self.in_correct_order(update, orders)
       )
