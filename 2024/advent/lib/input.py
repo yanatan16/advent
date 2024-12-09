@@ -16,7 +16,7 @@ def get_input(year: int, day: int) -> str:
             resp = client.get(f'https://adventofcode.com/{year}/day/{day}/input', headers={'Cookie': f'session={session_cookie}'})
 
             if resp.status_code == 404:
-                release = datetime.datetime(2024, 12, 6, tzinfo=zoneinfo.ZoneInfo("America/New_York"))
+                release = datetime.datetime(year, 12, day, tzinfo=zoneinfo.ZoneInfo("America/New_York"))
                 now = datetime.datetime.now(zoneinfo.ZoneInfo("UTC"))
                 time_to_release = release - now
                 print(f"{year} Day {day} hasn't started yet, it comes out midnight EST on December {day}, which {time_to_release} away")

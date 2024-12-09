@@ -1,5 +1,6 @@
 from typing import *
 from dataclasses import dataclass
+import math
 
 T = TypeVar('T')
 
@@ -100,6 +101,9 @@ class Coord(NamedTuple):
     def __sub__(self, other: 'Coord') -> 'Coord':
         return Coord(self.x - other.x, self.y - other.y)
 
+    def __neg__(self) -> 'Coord':
+        return Coord(-self.x, -self.y)
+
     @property
     def manhatten_distance(self) -> int:
         return abs(self.x) + abs(self.y)
@@ -118,6 +122,12 @@ class Coord(NamedTuple):
             x=((self.x - xmin) % xmax) + xmin,
             y=((self.y - ymin) % ymax) + ymin,
         )
+
+    def gcd_vector(self) -> 'Coord':
+        gcd = math.gcd(abs(self.x), abs(self.y))
+        if gcd > 1:
+            return Coord(self.x // gcd, self.y // gcd)
+        return self
 
 
 
