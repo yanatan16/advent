@@ -41,7 +41,10 @@ class Coord(NamedTuple):
 
         return xmin <= self.x < xmax and ymin <= self.y < ymax
 
-    def get(self, map: List[List[T]]) -> T | None:
+    def get(self, map: List[List[T]], wrapped: bool = False) -> T | None:
+        if wrapped:
+            return self.wrap(map).get(map)
+
         assert len(map) > 0, 'Map must have at least one row'
         assert len(map[0]) > 0, 'Map must have at least one column'
 

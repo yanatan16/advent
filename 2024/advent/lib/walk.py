@@ -2,7 +2,7 @@ from typing import *
 
 T = TypeVar('T')
 
-def walk(start: T, connected: Callable[T, List[T]]) -> Set[T]:
+def walk_bfs(start: T, connected: Callable[[T], List[T]]) -> Set[T]:
     seen = set()
     untraveled = {start}
 
@@ -15,3 +15,20 @@ def walk(start: T, connected: Callable[T, List[T]]) -> Set[T]:
                 untraveled.add(conn)
 
     return seen
+
+def walk_dfs(
+        start: T,
+        connected: Callable[[T], List[T]],
+        done: Callable[[T], bool]
+) -> List[List[T]]:
+    def walk(node: T) -> List[List[T]]:
+        if done(node):
+            return [[node]]
+
+        return [
+            [node] + rest
+            for n2 in connected(node)
+            for rest in walk(n2)
+        ]
+
+    return walk(start)

@@ -3,7 +3,7 @@ import sys
 from .input import get_input
 from .runner import Advent
 from .parsers import UtilityParsers
-from .walk import walk
+from .walk import walk_bfs, walk_dfs
 from .sparse_grid import SparseGrid
 from .ranges import Range
 from . import twod, threed, hexd
@@ -27,7 +27,8 @@ __all__ = [
     'Advent',
     'UtilityParsers',
     'SparseGrid',
-    'walk',
+    'walk_bfs',
+    'walk_dfs',
     'twod',
     'threed',
     'hexd',
