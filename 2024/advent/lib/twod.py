@@ -5,6 +5,7 @@ import math
 T = TypeVar('T')
 
 Direction = Literal['up','down','left','right']
+directions: List[Direction] = ['up','down','left','right']
 
 right_turn: Dict[Direction, Direction] = {
     'up': 'right',
