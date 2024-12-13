@@ -9,6 +9,7 @@ from .ranges import Range
 from . import twod, threed, hexd
 from .utils import freqlist, freqs
 from .priorityqueue import PriorityQueue
+from .system_of_equations import solve_soe_linear_2var
 
 from dataclasses import dataclass
 from enum import Enum
@@ -49,5 +50,6 @@ __all__ = [
     'np',
     'scipy',
     'sympy',
-    'nx'
+    'nx',
+    'solve_soe_linear_2var'
 ]
