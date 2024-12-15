@@ -10,3 +10,8 @@ def freqlist(it: Iterable[T], key: Callable[[T], K] | None = None) -> Dict[K, Li
 def freqs(it: Iterable[T], key: Callable[[T], K] | None = None) -> Dict[K, int]:
     return {k: sum(1 for _ in grp) for k, grp in itertools.groupby(it, key=key)}
 
+def product(ns: Iterable[float | int]) -> float | int:
+    tot = 1
+    for n in ns:
+        tot *= n
+    return tot

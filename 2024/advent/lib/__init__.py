@@ -7,7 +7,7 @@ from .walk import walk_bfs, walk_dfs
 from .sparse_grid import SparseGrid
 from .ranges import Range
 from . import twod, threed, hexd
-from .utils import freqlist, freqs
+from .utils import freqlist, freqs, product
 from .priorityqueue import PriorityQueue
 from .system_of_equations import solve_soe_linear_2var
 
@@ -51,5 +51,6 @@ __all__ = [
     'scipy',
     'sympy',
     'nx',
-    'solve_soe_linear_2var'
+    'solve_soe_linear_2var',
+    'product'
 ]
