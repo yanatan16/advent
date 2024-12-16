@@ -18,3 +18,12 @@ class PriorityQueue(Generic[Item]):
 
     def pop(self):
         return heapq.heappop(self.q)[2]
+
+    def resort(self):
+        newq = []
+        for _, order, item in self.q:
+            heapq.heappush(newq, (self.key(item), order, item))
+        self.q = newq
+
+    def __len__(self) -> int:
+        return len(self.q)
