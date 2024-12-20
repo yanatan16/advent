@@ -44,12 +44,14 @@ def djikstras(nodes: Iterable[T], start: T, neighbor: NeighborF, _tqdm: bool = T
     return dist, prev
 
 def djikstras_paths(prev: Dict[T, List[T]], end: T) -> List[List[T]]:
-    def subpaths(node: T) -> Generator[List[T], None, None]:
-        if len(prev[node]) == 0:
-            yield [node]
+    done = []
+    paths = [[end]]
+    while len(paths) > 0:
+        path = paths.pop()
+        last = path[-1]
+        if len(prev[last]) == 0:
+            done += [path]
         else:
-            for pn in prev[node]:
-                for subp in subpaths(pn):
-                    yield subp + [node]
-
-    return list(subpaths(end))
+            for pn in prev[last]:
+                paths += [path + [pn]]
+    return done
