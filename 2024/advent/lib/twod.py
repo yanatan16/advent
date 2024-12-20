@@ -15,6 +15,14 @@ right_turn: Dict[Direction, Direction] = {
 }
 left_turn = {v:k for k,v in right_turn.items()}
 
+Arrow = Literal['<', '>', '^', 'v']
+arrows: Dict[Arrow, Direction] = {
+    '<': 'left',
+    'v': 'down',
+    '>': 'right',
+    '^': 'up'
+}
+
 class Coord(NamedTuple):
     x: int
     y: int
@@ -84,8 +92,21 @@ class Coord(NamedTuple):
           case 'down':
             return self.down(n)
 
+    def follow(self, directions: Iterable[Direction]):
+        c = self
+        for dir in directions:
+            c = c.move(dir)
+        return c
+
     def __str__(self) -> str:
         return f'({self.x},{self.y})'
+
+    @staticmethod
+    def freqlist(map: List[List[T]]) -> Dict[T, List['Coord']]:
+        f: Dict[T, List[Coord]] = {}
+        for coord in Coord.all_coords(map):
+            f[coord.get(map)] = f.get(coord.get(map), []) + [coord]
+        return f
 
     @staticmethod
     def all_coords(xmax_or_map: int | List[List[T]], ymax: int = 0, xmin: int = 0, ymin: int = 0) -> Generator['Coord', None, None]:

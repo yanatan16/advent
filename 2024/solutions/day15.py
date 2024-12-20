@@ -3,8 +3,8 @@ from advent.lib import *
 
 Coord = twod.Coord
 Map = List[List[str]]
-Movement = Literal['<','v','>','^']
-Movements = List[Movement]
+Movement = twod.Arrow
+Movements = List[twod.Arrow]
 Input = Tuple[Map, Movements]
 
 class Parsers(p.ParserContext, whitespace=r'[ \t]*'):
@@ -132,7 +132,119 @@ v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^'''
 
 
     def solve2(self, input: Input) -> Any:
-        return 'Not implemented'
+      map, movements = input
+
+      newmap = [
+        [
+          '#' if Coord(i,j).get(map) == '#' else (
+            '[]'[w] if Coord(i,j).get(map) == 'O' else (
+              '@' if Coord(i,j).get(map) == '@' and w == 0 else '.'
+            )
+          )
+          for j in range(len(map[0]))
+          for w in range(2)
+        ]
+        for i in range(len(map))
+      ]
+
+      mapfreqs = Coord.freqlist(newmap)
+      robot = mapfreqs['@'][0]
+      walls = mapfreqs['#']
+
+      class State(NamedTuple):
+        boxes_left: Set[Coord]
+        boxes_right: Set[Coord]
+        robot: Coord
+
+        def step(state, m: twod.Arrow) -> 'State':
+          boxes_to_move = set()
+          dir = twod.arrows[m]
+          keys = {state.robot.move(dir)}
+          can_move = False
+
+          while not can_move:
+            newkeys = set()
+            for key in keys:
+              if key in walls:
+                # No movement this time
+                return state
+              elif key in state.boxes_left:
+                boxes_to_move.add(key)
+                boxes_to_move.add(key.move('right'))
+                if m == '>':
+                  newkeys.add(key.move('right').move('right'))
+                else:
+                  newkeys.add(key.move(dir))
+                  newkeys.add(key.move('right').move(dir))
+              elif key in state.boxes_right:
+                boxes_to_move.add(key)
+                boxes_to_move.add(key.move('left'))
+                if m == '<':
+                  newkeys.add(key.move('left', 2))
+                else:
+                  newkeys.add(key.move(dir))
+                  newkeys.add(key.move('left').move(dir))
+              else:
+                newkeys.add(key)
+
+            # if no key changes were detected, we move
+            if newkeys == keys:
+              can_move = True
+            else:
+              keys = newkeys
+
+          moved_boxes_left = [
+            box.move(dir)
+            for box in boxes_to_move
+            if box in state.boxes_left
+          ]
+          moved_boxes_right = [
+            box.move(dir)
+            for box in boxes_to_move
+            if box in state.boxes_right
+          ]
+
+          self._print(f'moving {state.robot} to {state.robot.move(dir)} and moving boxes {boxes_to_move} to {moved_boxes_left} and {moved_boxes_right}')
+          return State(
+            boxes_left=(state.boxes_left - boxes_to_move).union(moved_boxes_left),
+            boxes_right=(state.boxes_right - boxes_to_move).union(moved_boxes_right),
+            robot=state.robot.move(dir)
+          )
+
+        def disp(state):
+          if self._verbose:
+            self._print('\n'.join(
+              ''.join(
+                '#' if Coord(x,y) in walls else (
+                  '[' if Coord(x,y) in state.boxes_left else (
+                    ']' if Coord(x,y) in state.boxes_right else (
+                      '@' if Coord(x,y) == state.robot else '.'
+                    )
+                  )
+                )
+                for y in range(len(newmap[0]))
+              )
+              for x in range(len(newmap))
+            ))
+
+      state = State(set(mapfreqs['[']), set(mapfreqs[']']), robot)
+      state.disp()
+      steps = 0
+
+      for movement in tqdm(movements):
+        steps += 1
+        state = state.step(movement)
+
+        self._print(f'After {steps} steps ({movement} : {twod.arrows[movement]})')
+        state.disp()
+
+      self._print(f'After {steps} steps')
+      state.disp()
+
+      return sum(
+        box.x * 100 + box.y
+        for box in state.boxes_left
+      )
 
 if __name__ == '__main__':
     Day15().main()
