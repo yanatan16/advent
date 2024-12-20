@@ -186,3 +186,25 @@ class Edge:
   @staticmethod
   def circumference(edges: List['Edge']) -> int:
       return sum(len(e) for e in edges)
+
+def printmap(map: List[List[T]]) -> str:
+    return '\n'.join(
+        ''.join(str(cell) for cell in row)
+        for row in map
+    )
+
+def printnodes(nodes: Dict[T, List[Coord]], xmax: int, ymax: int) -> str:
+    rev = {
+        c: t
+        for t, cs in nodes.items()
+        for c in cs
+    }
+    return printmap(
+        [
+            [
+                rev[Coord(x,y)]
+                for x in range(xmax)
+            ]
+            for y in range(ymax)
+        ]
+    )

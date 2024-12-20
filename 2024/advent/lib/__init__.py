@@ -10,7 +10,7 @@ from . import twod, threed, hexd
 from .utils import freqlist, freqs, product
 from .priorityqueue import PriorityQueue
 from .system_of_equations import solve_soe_linear_2var
-from .djikstras import djikstras
+from .djikstras import djikstras, djikstras_paths
 
 from dataclasses import dataclass
 from enum import Enum
@@ -55,4 +55,5 @@ __all__ = [
     'solve_soe_linear_2var',
     'product',
     'djikstras',
+    'djikstras_paths',
 ]
