@@ -4,12 +4,10 @@ from pathlib import Path
 template = '''from typing import *
 from advent.lib import *
 
-Input = List[int]
+Input = List[str]
 
 class Parsers(p.ParserContext, whitespace=r'[ \\t]*'):
-  mapline = p.reg(r'[.#]+')
-  n = UtilityParsers.integer
-  line = n
+  line = UtilityParsers.anything
   input = p.repsep(line, '\\n')
 
 class DayXX(Advent[Input]):

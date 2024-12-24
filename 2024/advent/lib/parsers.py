@@ -9,5 +9,6 @@ class UtilityParsers(ParserContext, whitespace=r'[ \t]*'):
     name = reg(r'[a-z]+')
     newline = lit('\n')
     char = reg(r'[a-z]')
+    anything = reg('.*')
 
     twod_coord = repsep(integer, ',', min=2, max=2) > (lambda ns: Coord(*ns))
